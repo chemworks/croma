@@ -241,6 +241,7 @@ func (c *Croma) setTr() error {
 // Normalize the fractions or percenrts
 func (c *Croma) Normalize() {
 	sum := 0.0
+	c.MolFracNorm = map[string]float64{}
 	for _, cmp := range comp {
 
 		sum = sum + c.MolFrac[cmp]
