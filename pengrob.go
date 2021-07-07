@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/chemworks/gocubicsolver"
+	cubic "github.com/chemworks/gocubicsolver"
 )
 
 const (
@@ -23,7 +23,7 @@ func PengP(P, Pc, T, Tc, acent float64) float64 {
 	b := (1 - B)
 	c := (A - 2*B - 3*B*B)
 	d := (A*B - B*B - B*B*B)
-	r, err := gocubicsolver.Solve(a, b, c, d)
+	r, err := cubic.Solve(a, b, c, d)
 	if err != nil {
 		fmt.Println("Error")
 	}

@@ -9,7 +9,7 @@ func (b *Builder) Build() Croma {
 	return b.c
 }
 
-// Usage c :=&Builder{}
+// Usage b :=&Builder{}
 // croma := b.
 // 			  Gas("NG").
 // 			  Build()
@@ -251,6 +251,16 @@ func (c *Croma) Normalize() {
 			c.MolFracNorm[cmp] = c.MolFrac[cmp] / sum
 		}
 	}
+}
+
+// Returns a map with norm values
+func (c *Croma) CromaNorm() map[string]float64 {
+	if c.norm {
+		return c.MolFracNorm
+	}
+	c.Normalize()
+	return c.MolFracNorm
+
 }
 
 // Get some prop from mol fractions
